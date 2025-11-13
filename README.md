@@ -1,0 +1,149 @@
+# Aurora Chatbot 🌌
+
+Aurora is a modern web-based chatbot that combines the power of Google's Gemini AI with real-time web search capabilities via Tavily. It features a sleek dark-themed interface with support for file attachments and conversation history management.
+
+## Features
+
+- **AI-Powered Conversations**: Uses Google's Gemini 2.5 Flash Lite model for intelligent responses
+- **Web Search Integration**: Automatically searches the web using Tavily when needed for up-to-date information
+- **File Attachments**: Upload and process various file types with your messages
+- **Conversation Memory**: Maintains full conversation history for context-aware responses
+- **Modern UI**: Beautiful dark theme with purple and cyan accent colors
+- **Real-time Processing**: Live status updates during web searches and file processing
+- **Responsive Design**: Works on different screen sizes
+
+## Setup Requirements
+
+### API Keys
+
+Aurora requires two API keys to function:
+
+1. **Gemini API Key** - Get from [Google AI Studio](https://aistudio.google.com/apikey)
+2. **Tavily API Key** - Get from [Tavily AI Search](https://tavily.com/)
+
+### Configuration
+
+Create a JSON file with your API keys in the following format:
+
+```json
+{
+  "gemini": "your-gemini-api-key",
+  "tavily": "your-tavily-api-key"
+}
+```
+
+## Usage
+
+1. Open `aurora.html` in a modern web browser
+2. Click "Choose API Keys File" and select your JSON configuration file
+3. Wait for the confirmation message
+4. Start chatting with Aurora!
+
+### Features
+
+- **Text Messages**: Type messages naturally into the input field
+- **File Attachments**: Click the paperclip icon to attach files
+- **Web Search**: Aurora will automatically search the web when needed
+- **Keyboard Shortcuts**: Press Enter to send, Shift+Enter for new line
+- **Message Status**: Track search queries and file processing in real-time
+
+## Technical Stack
+
+- **Frontend**: HTML5, CSS3, JavaScript (ES6+)
+- **AI Model**: Google Gemini 2.5 Flash Lite
+- **Search Engine**: Tavily AI Search API
+- **Markdown Rendering**: Marked.js
+- **Icons**: Font Awesome 6.5.2
+
+## File Structure
+
+```
+aurora.html
+├── HTML Structure
+│   ├── Chat Header
+│   ├── API Key Setup Panel
+│   └── Chat Interface
+├── CSS Styling
+│   ├── Color Theme Variables
+│   ├── Layout Styles
+│   ├── Message Bubbles
+│   ├── Input Area
+│   └── Animations
+└── JavaScript
+    ├── API Integration
+    ├── Message Management
+    ├── File Handling
+    ├── Gemini API Calls
+    └── Tavily Search Integration
+```
+
+## API Functions
+
+### Gemini Integration
+- Sends conversation history to Google's Gemini API
+- Handles tool calling for web search
+- Manages multi-turn conversations with context
+
+### Tavily Search
+- Performs web searches when requested
+- Returns top 5 results with answer synthesis
+- Integrates results back into conversation flow
+
+### File Processing
+- Accepts any file type (images, documents, etc.)
+- Encodes files to base64 for API transmission
+- Displays file information and processing status
+
+## Styling
+
+The chatbot uses a sophisticated color scheme:
+
+- **Background**: Deep purple-black (#0D0B14)
+- **Primary Accent**: Purple (#8A2BE2)
+- **Secondary Accent**: Cyan (#00BFFF)
+- **Text**: Light gray (#E0E0E0)
+- **Glowing Effects**: Animated shadows and borders
+
+## Browser Compatibility
+
+- Chrome/Chromium (latest)
+- Firefox (latest)
+- Safari (latest)
+- Edge (latest)
+
+## Limitations
+
+- API keys are stored in browser memory only (not persisted)
+- File size is limited by browser and API constraints
+- Web search requires active internet connection
+- Gemini API has its own rate limits and usage policies
+
+## Security Notes
+
+- Always keep your API keys confidential
+- The HTML file runs entirely in the browser (client-side)
+- API keys are never logged or stored permanently
+- Use HTTPS when hosting on a server
+
+## Troubleshooting
+
+**"Error parsing JSON file"**: Ensure your API keys file is valid JSON with both "gemini" and "tavily" keys.
+
+**"API Error"**: Check that your API keys are valid and have active quotas.
+
+**"Search failed"**: Verify your Tavily API key is valid and you have search credits remaining.
+
+**No response**: Check browser console for errors (F12 → Console tab).
+
+## Future Enhancements
+
+- Local storage for conversation history
+- Customizable themes
+- Multiple conversation threads
+- Voice input/output support
+- Custom system prompts
+- Export conversation history
+
+## License
+
+This project is provided as-is under the MIT License.
