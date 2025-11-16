@@ -5,11 +5,14 @@ Aurora is a modern web-based chatbot that combines the power of Google's Gemini 
 ## Features
 
 - **AI-Powered Conversations**: Uses Google's Gemini 2.5 Flash Lite model for intelligent responses
-- **Web Search Integration**: Automatically searches the web using Tavily when needed for up-to-date information
+- **Dual Search Modes**:
+  - **Web Search**: General web searches for current information
+  - **Academic Search**: Filtered searches across 16+ academic sources (ArXiv, Scholar, PubMed, IEEE, etc.)
+- **Search Mode Toggle**: Easy checkbox to enable/disable academic search with real-time label updates
 - **File Attachments**: Upload and process various file types with your messages
 - **Conversation Memory**: Maintains full conversation history for context-aware responses
 - **Modern UI**: Beautiful dark theme with purple and cyan accent colors
-- **Real-time Processing**: Live status updates during web searches and file processing
+- **Real-time Processing**: Live status updates during searches and file processing
 - **Responsive Design**: Works on different screen sizes
 
 ## Setup Requirements
@@ -44,16 +47,57 @@ Create a JSON file with your API keys in the following format:
 - **Text Messages**: Type messages naturally into the input field
 - **File Attachments**: Click the paperclip icon to attach files
 - **Web Search**: Aurora will automatically search the web when needed
+- **Academic Search Mode**:
+  - Toggle the 🎓 Academic Search checkbox before asking research questions
+  - Aurora will prioritize academic sources like ArXiv, Google Scholar, PubMed, IEEE, ACM, and more
+  - Mode indicator shows "Web Search" or "📚 Academic Search"
 - **Keyboard Shortcuts**: Press Enter to send, Shift+Enter for new line
-- **Message Status**: Track search queries and file processing in real-time
+- **Message Status**: Track search queries, academic searches, and file processing in real-time
+
+### Academic Search Sources
+
+When Academic Search mode is enabled, Aurora searches across these 16+ authoritative academic sources:
+
+| Source | Focus |
+|--------|-------|
+| ArXiv | Preprints in physics, CS, math, etc. |
+| Google Scholar | Multi-disciplinary research |
+| ResearchGate | Researcher network & papers |
+| Semantic Scholar | AI-indexed academic papers |
+| PubMed | Biomedical & life sciences |
+| DOI.org | Digital object identifiers |
+| IEEE | Engineering & technology |
+| ACM | Computer science & IT |
+| JSTOR | Humanities & social sciences |
+| ScienceDirect | Multidisciplinary journals |
+| Nature | Multidisciplinary research |
+| Springer | Academic publishing |
+| Wiley | Scientific publications |
+| PLOS | Open-access journals |
+| bioRxiv | Biology preprints |
+| medRxiv | Medical preprints |
 
 ## Technical Stack
 
 - **Frontend**: HTML5, CSS3, JavaScript (ES6+)
 - **AI Model**: Google Gemini 2.5 Flash Lite
-- **Search Engine**: Tavily AI Search API
+- **Search Engine**: Tavily AI Search API with domain filtering
 - **Markdown Rendering**: Marked.js
 - **Icons**: Font Awesome 6.5.2
+
+## How Academic Search Works
+
+Aurora uses Tavily's `include_domains` parameter to filter searches to academic sources when Academic Search mode is enabled:
+
+1. **Mode Toggle**: User enables 🎓 Academic Search checkbox
+2. **Tool Selection**: Gemini prioritizes the `academic_search` tool over `tavily_search`
+3. **Domain Filtering**: Tavily API receives a whitelist of 16+ academic domains
+4. **Advanced Search**: Academic searches use "advanced" depth for better relevance
+5. **Result Processing**: Gemini synthesizes academic results with proper context
+
+**Key Differences**:
+- **Web Search**: Basic depth, unrestricted domains, up to 5 results
+- **Academic Search**: Advanced depth, academic domains only, up to 5 results
 
 ## File Structure
 
