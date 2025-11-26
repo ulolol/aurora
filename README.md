@@ -1,5 +1,7 @@
 # Aurora Chatbot 🌌
 
+![Logo](aurora-logo_github.gif)
+
 Aurora is a modern web-based chatbot that combines the power of Google's Gemini AI with real-time web search capabilities via Tavily. It features a sleek dark-themed interface with support for file attachments and conversation history management.
 
 ## Features
